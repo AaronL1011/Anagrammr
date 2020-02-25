@@ -17,7 +17,12 @@ def permutations(string, step = 0):
         # recurse on the portion of the string that has not been swapped yet
         permutations(string_copy, step + 1)
 
-userWord = input("Enter your word: ")
+while True:
+    userWord = input("Enter your word: ")
+    if userWord.isalpha():
+        break
+    else:
+        print("Enter a valid string.")
 permutations(userWord)
 print(resultList)
 
