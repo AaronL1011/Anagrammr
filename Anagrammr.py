@@ -5,6 +5,7 @@ resultList = []
 originalString = ""
 
 def permutations(string, step = 0): #Method for finding complete permutation of input, and comparing to reference list.
+    originalString = string
     #when count reaches end of length of input word, add word to resultList
     if step == len(string): 
         result = "".join(string)
@@ -22,16 +23,17 @@ def permutations(string, step = 0): #Method for finding complete permutation of 
 while True:
     userWord = input("Enter your word: ")
     if userWord.isalpha():
-        originalString = userWord
         break
     else:
         print("Enter a valid string.")
 permutations(userWord)
-if len(resultList) <= 1:
+if len(resultList) <= 1 and resultList[0] == userWord:
     resultList.pop(0)
     resultList.append("There were no anagrams in the reference list")
+else:
+    print(resultList)
 
-print(resultList)
+
 
 
 
